@@ -67,17 +67,4 @@ Generally you will want to call you S3 bucket the name of your domain but if tha
 Note however, that DNS validation requires the domain nameservers to already be pointing to AWS. You won't actually know the nameservers until after the NS route 53 record has been created. Alternatively, you can follow the validation instructions from the ACM page for your domain and apply to where your nameservers are currently hosted. 
 DNS validation can take 30 minutes or more during which the terraform script will still be running.
 
-## Post Changes
-
-Once the terraform scripts have been run successfully you will need to upload your scripts to your `www.yourdomain.com` S3 bucket.
-
-At the very least you need an `index.html` and a `404.html` file.
-
-You can upload the contents of a directory to your S3 bucket by using the command:
-
-```
-aws s3 sync . s3://www.yourdomain.com
-```
-
-Whenever you make changes to the files in your S3 bucket you need to invalidate the Cloudfront cache.
 
