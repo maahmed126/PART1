@@ -1,5 +1,12 @@
 # terraform-s3-static-website
 
+Part 1
+
+Using terraform, create a S3 bucket to serve a static website through a cloudfront distribution. Create an index.html file that prints "Hello World!" and upload it to the root of the S3 bucket. The S3 bucket should have a restrictive bucket policy that only allows the Cloudfront distribution to read objects present in it. Also create an error page that prints "Page not available". You can choose to write the terraform code from scratch or reuse the public terraform modules available for these resources.
+
+SOLUTION:
+
+
 Terraform for hosting a secure static website hosted on AWS using S3.
 
 The terraform will set up the following components:
@@ -46,17 +53,6 @@ Create a new S3 bucket manually to store your state files. This should have the 
 }
 ```
 
-Where `1234567890` is replaced with your AWS account ID and `yourdomain-terraform` is replaced with the name of your S3 bucket.
-
-### Update your provider settings
-
-In `providers.tf` update the bucket (`yourdomain-terraform`) and region (`eu-west-1`) parameters to match your setup. Note, the `acm_provider` needs to point to `us-east-1` for Cloudfront to be able to use it.
-
-### Update the variables
-
-In `terraform.tfvars` update the variables with the name of your domain and S3 bucket. You can just replace `yourdomain` with your actual domain.
-
-Generally you will want to call you S3 bucket the name of your domain but if that is not possible (due to a conflict) then you can call it something else.
 
 ## Commands to run
 
